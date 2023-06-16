@@ -6,12 +6,13 @@ const indi = document.getElementById("indi-roa"),
       sds = document.getElementById("sds"),
       mh = document.getElementById("mov-hint");
 
-let xl,yl,cx,cy,ang;
+let xl,yl,cx,cy,ang,lock=false;
 xl=window.innerWidth;
 yl=window.innerHeight;
 cx=xl/2;
 cy=yl/2;
 window.addEventListener("mousemove",function(info){
+if(lock==false){
     if(mh.innerText != null){
         mh.innerText = ``;
     }
@@ -58,6 +59,17 @@ window.addEventListener("mousemove",function(info){
         sl.style.transform = "translate(" + cl.clientWidth + "px,-" + sl.clientHeight + "px)";
     }
     //console.log(ang);
+}
+})
+window.addEventListener("mousedown",function(){
+    if(lock){
+        lock=false;
+        this.document.body.style.cursor = "crosshair";
+    }
+    else{
+        lock=true;
+        this.document.body.style.cursor = "context-menu";
+    }
 })
 window.addEventListener("resize",function(){
     xl=window.innerWidth;
