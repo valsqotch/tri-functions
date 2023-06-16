@@ -72,6 +72,7 @@ body{
     width:0px;
     height:200px;
     border-left:4px rgb(115, 30, 200) solid;
+    z-index: 4;
 }
 #cds{
     position:absolute;
