@@ -3,7 +3,8 @@ const indi = document.getElementById("indi-roa"),
       cl=document.getElementById("c-line"),
       sl=document.getElementById("s-line"),
       cds = document.getElementById("cds"),
-      sds = document.getElementById("sds");
+      sds = document.getElementById("sds"),
+      mh = document.getElementById("mov-hint");
 
 let xl,yl,cx,cy,ang;
 xl=window.innerWidth;
@@ -11,6 +12,9 @@ yl=window.innerHeight;
 cx=xl/2;
 cy=yl/2;
 window.addEventListener("mousemove",function(info){
+    if(mh.innerText != null){
+        mh.innerText = ``;
+    }
     //console.log(info.pageX + ", " + info.pageY);
     //console.log(Math.atan((info.pageY - cy)/(info.pageX - cx))*-57.13);
     ang=Math.atan((info.pageY - cy)/(info.pageX - cx))*-57.13;
