@@ -5,12 +5,12 @@
 body{
     background-color: rgb(220,220,220);
 }
-@media screen and (max-width:765px){
+@media screen and (min-height:1800px){
     .hid{
         display:none;
     }
 }
-@media screen and (min-width:765px){
+@media screen and (max-height:1800px){
     .ahid{
         display:none;
     }
