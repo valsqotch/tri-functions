@@ -18,7 +18,7 @@ if(lock==false){
     }
     //console.log(info.pageX + ", " + info.pageY);
     //console.log(Math.atan((info.pageY - cy)/(info.pageX - cx))*-57.13);
-    ang=Math.atan((info.pageY - cy)/(info.pageX - cx))*-57.13;
+    ang=(Math.atan((info.pageY - cy)/(info.pageX - cx))*-57.13);
     
     if(info.pageX < cx){ //rotate things
         indi.style.transform = "rotate(" + (180 - ang) + "deg) ";
@@ -36,12 +36,12 @@ if(lock==false){
     }
     if(ang<0||info.pageX<cx){ //display things
         if(ang<0&&info.pageX>cx){ //4
-            angdp.innerText = "θ=" + parseInt(ang+360);
+            angdp.innerText = "θ=" + (ang+360).toFixed(2);
             sl.style.height=Math.sin(ang/57.13) * -200 + "px";
             sl.style.transform = "translate(" + cl.clientWidth + "px)";
         }
         else{
-            angdp.innerText = "θ=" + parseInt(ang+180);
+            angdp.innerText = "θ=" + (ang+180).toFixed(2);
 
             if(info.pageY>cy){ //3
                 sl.style.height = Math.sin(ang/57.13) * 200 + "px";
@@ -54,7 +54,7 @@ if(lock==false){
         }
     }
     else{ //1
-        angdp.innerText = "θ=" + parseInt(ang);
+        angdp.innerText = "θ=" + ang.toFixed(2);
         sl.style.height = Math.sin(ang/57.13) * 200 + "px";
         sl.style.transform = "translate(" + cl.clientWidth + "px,-" + sl.clientHeight + "px)";
     }
@@ -69,6 +69,7 @@ window.addEventListener("mousedown",function(){
     else{
         lock=true;
         this.document.body.style.cursor = "context-menu";
+        //this.document.all.style.cursor = "context-menu";
     }
 })
 window.addEventListener("resize",function(){
